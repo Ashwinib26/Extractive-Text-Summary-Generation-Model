@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extractive Text Summarization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Extractive Text Summarizer</h2>
+    <p class="caption">Get Your Summary Instantly</p>
+    
+    <form action="/summarize" method="post">
+        <textarea name="input_text" rows="8" placeholder="Enter your text here...">{{ input_text }}</textarea><br>
+        <button type="submit">Summarize</button>
+    </form>
+
+    {% if summary %}
+        <div class="summary-container">
+            <h3>Summary:</h3>
+            <p>{{ summary }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
