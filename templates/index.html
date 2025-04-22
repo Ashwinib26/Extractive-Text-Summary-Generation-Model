@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h2>Extractive Text Summarizer</h2>
+    <h1>Extractive Text Summarizer</h1>
     <p class="caption">Get Your Summary Instantly</p>
-    
+
     <form action="/summarize" method="post">
-        <textarea name="input_text" rows="8" placeholder="Enter your text here...">{{ input_text }}</textarea><br>
+        <label for="input_text" class="sr-only">Enter text</label>
+        <textarea name="input_text" id="input_text" rows="10" placeholder="Enter your text here...">{{ input_text }}</textarea><br>
         <button type="submit">Summarize</button>
     </form>
 
