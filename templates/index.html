@@ -5,22 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extractive Text Summarization</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-    <h1>Extractive Text Summarizer</h1>
-    <p class="caption">Get Your Summary Instantly</p>
+    <div class="container">
+        <h1 class="title">Extractive Text Summarizer</h1>
+        <p class="caption"><span class="typing"></span></p>
 
-    <form action="/summarize" method="post">
-        <label for="input_text" class="sr-only">Enter text</label>
-        <textarea name="input_text" id="input_text" rows="10" placeholder="Enter your text here...">{{ input_text }}</textarea><br>
-        <button type="submit">Summarize</button>
-    </form>
+        <form action="/summarize" method="post" class="form">
+            <textarea name="input_text" id="input_text" rows="10" placeholder="Paste your text here...">{{ input_text }}</textarea>
+            <button type="submit">Generate Summary</button>
+        </form>
 
-    {% if summary %}
+        {% if summary %}
         <div class="summary-container">
             <h3>Summary:</h3>
             <p>{{ summary }}</p>
         </div>
-    {% endif %}
+        {% endif %}
+    </div>
+
+    <script>
+        const typed = new Typed('.typing', {
+            strings: ["Get your summary instantly!", "Fast. Accurate. Extractive."],
+            typeSpeed: 60,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
 </body>
 </html>
